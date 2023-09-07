@@ -1,1 +1,25 @@
-Fairhouse App is running
+<main>
+    <header>
+        <img src="../assets/logo.svg" alt="fairhouse">Fairhouse
+    </header>
+    <section>
+        <app-housing-list [locationList]="housingLocationList">
+            <!-->(selectedLocationEvent)="updateSelectedLocation($event)">-->
+        </app-housing-list>
+    </section>
+    <!--
+    <article>
+        <ng-container *ngIf="selectedLocation">
+            <img [src]="selectedLocation?.photo">
+            <p>{{selectedLocation?.name}}</p>
+            <p>{{selectedLocation?.availableUnits}}</p>
+            <p>{{selectedLocation?.city}}, {{selectedLocation?.state}}</p>
+            <p>{{selectedLocation?.laundry ? "Has laundry" : "Doesn't have laundry"}}</p>
+            <img *ngIf= "selectedLocation?.laundry"  src="../assets/laundry.webp" width="5" height="60">
+            <p>{{selectedLocation?.wifi ? "Has wifi" : "Doesn't have wifi"}}</p>
+            <img *ngIf= "selectedLocation?.wifi"  src="../assets/wifi.png" width="5" height="60">
+            <p>{{"Distance from center is: "+    selectedLocation?.distanceFromCenter + "km"}}</p>            
+        </ng-container>
+    </article>
+    -->
+</main>

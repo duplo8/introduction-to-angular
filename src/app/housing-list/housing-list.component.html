@@ -1,0 +1,27 @@
+<label for="location-search"> <h3>Search your new shitty home:</h3> only searching by city names</label>
+<input id="location-search" #search placeholder="Ex: ChiCago">
+<button (click)="searchHousingLocations(search.value)"> Search </button> <!--fills in results, an array of objects-->
+<br>
+<article *ngFor="let location of results"> <!--iterates the result array and displays the results-->
+    <img [src]="location.photo">
+    <p>{{location.name}}</p>
+    <p>{{location.city}}, {{location.state}}</p>    
+<!-- <button (click)="selectHousingLocation(location)"> View </button>   <!--shows details of that location-->
+  
+  
+  
+   <button (click)="selectHousingLocation(location)"> View details </button>
+</article>
+
+<div id="showLocation" *ngIf="isSelected">
+    <img [src]="selectedResult?.photo">
+    <p>{{selectedResult?.name}}</p>
+    <p id="availUnits">{{"available units:  " + selectedResult?.availableUnits}}</p>
+    <p>{{selectedResult?.city}}, {{selectedResult?.state}}</p>
+    <p>{{selectedResult?.laundry ? "Has laundry" : "Doesn't have laundry"}}</p>
+    <img id = "servicesLogo" *ngIf= "selectedResult?.laundry"  src="../assets/laundry.webp" width="5" height="60">  
+    <p>{{selectedResult?.wifi ? "Has wifi" : "Doesn't have wifi"}}</p>
+    <img id = "servicesLogo" *ngIf= "selectedResult?.wifi"  src="../assets/wifi.png" width="5" height="60">
+    <p>{{selectedResult?.parking? "Has parking" : "Doesn't have parking (of course)"}}</p>
+    <p>{{"Distance from center is: "+    selectedResult?.distanceFromCenter + "km"}}</p>
+</div>
